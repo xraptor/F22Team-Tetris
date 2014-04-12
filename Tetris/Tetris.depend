@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1397308490 source:c:\users\max\desktop\tetris\block.cpp
+	"Block.h"
+
+1397309202 c:\users\max\desktop\tetris\block.h
+	"essential.h"
+
+1397308954 c:\users\max\desktop\tetris\essential.h
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1397311676 source:c:\users\max\desktop\tetris\tetris.cpp
+	"Block.h"
+
