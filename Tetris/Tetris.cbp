@@ -13,9 +13,10 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DSFML_STATIC" />
 				</Compiler>
 				<Linker>
-					<Add option="-lsfml-graphics -lsfml-window -lsfml-system" />
+					<Add option="-lsfml-graphics -lsfml-window -lsfml-system -std=c++11" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -28,16 +29,29 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lsfml-graphics -lsfml-window -lsfml-system -std=c++11" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Application.cpp" />
+		<Unit filename="Application.hpp" />
 		<Unit filename="Block.cpp" />
-		<Unit filename="Block.h" />
+		<Unit filename="Block.hpp" />
+		<Unit filename="Config.hpp" />
+		<Unit filename="MotifPiece.cpp" />
+		<Unit filename="MotifPiece.hpp" />
+		<Unit filename="Piece.cpp" />
+		<Unit filename="Piece.hpp" />
+		<Unit filename="Scene.cpp" />
+		<Unit filename="Scene.hpp" />
 		<Unit filename="Tetris.cpp" />
-		<Unit filename="essential.h" />
+		<Unit filename="Utils.cpp" />
+		<Unit filename="Utils.hpp" />
+		<Unit filename="essential.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

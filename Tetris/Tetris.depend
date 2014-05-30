@@ -1,4 +1,10 @@
 # depslib dependency file v1.0
+1397308946 source:c:\users\max\desktop\documents\tetris\main.cpp
+	<SFML/Graphics.hpp>
+
+1397309708 source:c:\users\max\desktop\tetris\main.cpp
+	<SFML/Graphics.hpp>
+
 1397308490 source:c:\users\max\desktop\tetris\block.cpp
 	"Block.h"
 
@@ -9,6 +15,83 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1397311676 source:c:\users\max\desktop\tetris\tetris.cpp
+1397308775 source:c:\users\max\desktop\tetris\tetris.cpp
 	"Block.h"
+
+1397314655 source:c:\users\max\documents\github\projet-tetris\tetris\block.cpp
+	"Block.h"
+
+1397338978 c:\users\max\documents\github\projet-tetris\tetris\block.h
+	"essential.h"
+
+1397337669 c:\users\max\documents\github\projet-tetris\tetris\essential.h
+	<iostream>
+	<SFML/Graphics.hpp>
+	<vector>
+
+1397338000 source:c:\users\max\documents\github\projet-tetris\tetris\tetris.cpp
+	"Block.h"
+	"Piece.h"
+
+1397337897 source:c:\users\max\documents\github\projet-tetris\tetris\piece.cpp
+	"Piece.h"
+
+1397337926 c:\users\max\documents\github\projet-tetris\tetris\piece.h
+	"essential.h"
+	"Block.h"
+
+1401368689 source:c:\users\max\documents\github\f22team-tetris\tetris\application.cpp
+	"essential.hpp"
+
+1400863913 c:\users\max\documents\github\f22team-tetris\tetris\essential.hpp
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"Application.hpp"
+	"Scene.hpp"
+	"Piece.hpp"
+	"Block.hpp"
+	"Config.hpp"
+	"MotifPiece.hpp"
+	"Utils.hpp"
+
+1400618857 c:\users\max\documents\github\f22team-tetris\tetris\application.hpp
+	"essential.hpp"
+
+1401382743 c:\users\max\documents\github\f22team-tetris\tetris\scene.hpp
+	"essential.hpp"
+
+1401400412 c:\users\max\documents\github\f22team-tetris\tetris\piece.hpp
+	"essential.hpp"
+
+1401367455 c:\users\max\documents\github\f22team-tetris\tetris\block.hpp
+	"essential.hpp"
+
+1401367623 source:c:\users\max\documents\github\f22team-tetris\tetris\block.cpp
+	"essential.hpp"
+
+1401409705 source:c:\users\max\documents\github\f22team-tetris\tetris\piece.cpp
+	"essential.hpp"
+
+1401383081 source:c:\users\max\documents\github\f22team-tetris\tetris\scene.cpp
+	"essential.hpp"
+
+1401368619 source:c:\users\max\documents\github\f22team-tetris\tetris\tetris.cpp
+	"essential.hpp"
+
+1401408252 c:\users\max\documents\github\f22team-tetris\tetris\config.hpp
+
+1400622580 source:c:\users\max\documents\github\f22team-tetris\tetris\config.cpp
+
+1400865524 c:\users\max\documents\github\f22team-tetris\tetris\motifpiece.hpp
+
+1400865177 c:\users\max\documents\github\f22team-tetris\tetris\utils.hpp
+
+1400865870 source:c:\users\max\documents\github\f22team-tetris\tetris\motifpiece.cpp
+	"essential.hpp"
+
+1400865877 source:c:\users\max\documents\github\f22team-tetris\tetris\utils.cpp
+	"essential.hpp"
+	<cstdlib>
+	<ctime>
 
