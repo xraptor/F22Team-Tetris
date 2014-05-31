@@ -16,8 +16,8 @@ _mp(), _event(NONE)
     }
 
     genColors();
-
-    ajouterPiece(0, 0, _mp.getPiece(), rndColor());
+    vector<vector<bool> > tmpMotif = _mp.getPiece();
+    ajouterPiece(0, 0, tmpMotif, rndColor());
 }
 
 sf::Color& Grille::rndColor() {
@@ -33,7 +33,7 @@ void Grille::genColors() {
     _couleurs.push_back(sf::Color(102,0,204)); //Violet
 }
 
-void Grille::ajouterPiece(unsigned int col, unsigned int row, vector<vector<bool> > tBool, sf::Color &color) {
+void Grille::ajouterPiece(unsigned int col, unsigned int row, vector<vector<bool> > &tBool, sf::Color &color) {
 
     if(_pieceCourante == nullptr) {
         _pieceCourante = new Piece(col, row, tBool, color);
@@ -53,7 +53,7 @@ void Grille::ajouterPiece(unsigned int col, unsigned int row, vector<vector<bool
     }
 }
 
-void Grille::moveDown() {
+void Grille::erasePiece() {
     for(int i = 0; i < _pieceCourante->getMotif().size(); ++i) {
         for(int j = 0; j < _pieceCourante->getMotif()[i].size(); ++j) {
             if(_pieceCourante->getMotif()[i][j]) {
@@ -61,6 +61,31 @@ void Grille::moveDown() {
             }
         }
     }
+}
+
+void Grille::moveLeft() {
+    erasePiece();
+
+    _pieceCourante->setCol(_pieceCourante->getCol()-1);
+    ajouterPiece(_pieceCourante->getCol(), _pieceCourante->getRow(), _pieceCourante->getMotif(), _pieceCourante->getColor());
+}
+
+void Grille::moveRight() {
+    erasePiece();
+
+    _pieceCourante->setCol(_pieceCourante->getCol()+1);
+    ajouterPiece(_pieceCourante->getCol(), _pieceCourante->getRow(), _pieceCourante->getMotif(), _pieceCourante->getColor());
+}
+
+void Grille::moveUp() {
+    erasePiece();
+
+    _pieceCourante->setRow(_pieceCourante->getRow()-1);
+    ajouterPiece(_pieceCourante->getCol(), _pieceCourante->getRow(), _pieceCourante->getMotif(), _pieceCourante->getColor());
+}
+
+void Grille::moveDown() {
+    erasePiece();
 
     _pieceCourante->setRow(_pieceCourante->getRow()+1);
     ajouterPiece(_pieceCourante->getCol(), _pieceCourante->getRow(), _pieceCourante->getMotif(), _pieceCourante->getColor());
@@ -78,6 +103,18 @@ void Grille::draw(sf::RenderWindow& window) {
 void Grille::handleEvent(const Event& evt) {
     if(evt.type == sf::Event::KeyPressed) {
         switch(evt.key.code) {
+            case sf::Keyboard::Left:
+                _event = LEFT;
+                break;
+
+            case sf::Keyboard::Right:
+                _event = RIGHT;
+                break;
+
+            case sf::Keyboard::Up:
+                _event = UP;
+                break;
+
             case sf::Keyboard::Down:
                 _event = DOWN;
                 break;
@@ -87,8 +124,19 @@ void Grille::handleEvent(const Event& evt) {
 
 void Grille::update() {
     switch(_event) {
+        case LEFT:
+            moveLeft();
+            break;
+
+        case RIGHT:
+            moveRight();
+            break;
+
+        case UP:
+            moveUp();
+            break;
+
         case DOWN:
-            cout << "down" << endl;
             moveDown();
             break;
     }

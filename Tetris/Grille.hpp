@@ -30,7 +30,11 @@ class Grille{
 
         sf::Color& rndColor();
         void genColors();
-        void ajouterPiece(unsigned int col, unsigned int row, vector<vector<bool> > tBool, sf::Color &color);
+        void ajouterPiece(unsigned int col, unsigned int row, vector<vector<bool> > &tBool, sf::Color &color);
+        void erasePiece();
+        void moveLeft();
+        void moveRight();
+        void moveUp();
         void moveDown();
 
         void draw(sf::RenderWindow& window);

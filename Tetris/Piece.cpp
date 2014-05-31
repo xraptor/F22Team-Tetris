@@ -7,7 +7,7 @@ _col(col), _row(row), _motif(tBool), _color(color), _event(NONE)
 }
 
 void Piece::setCol(unsigned int col) {
-    _row = col;
+    _col = col;
 }
 
 void Piece::setRow(unsigned int row) {
