@@ -3,18 +3,89 @@
 MotifPiece::MotifPiece() {
 
     /*
-    xxxxx
-      x
-      x
-      x
+    x
+    x
+    x
+    x
     */
-    multipleBlockPush(5, true);
-    lineMove();
-    multipleBlockPush(2, false);
     blockPush(true);
-    multipleBlockPush(2, false);
     linePush();
     linePush();
+    linePush();
+    lineMove();
+    pieceMove();
+
+    /*
+    x
+    x
+    xx
+    */
+    blockPush(true);
+    blockPush(false);
+    linePush();
+    linePush();
+    lineMove();
+    multipleBlockPush(2, true);
+    lineMove();
+    pieceMove();
+
+    /*
+     x
+     x
+    xx
+    */
+    blockPush(false);
+    blockPush(true);
+    linePush();
+    linePush();
+    lineMove();
+    multipleBlockPush(2, true);
+    lineMove();
+    pieceMove();
+
+    /*
+    xxx
+     x
+    */
+    multipleBlockPush(3, true);
+    lineMove();
+    blockPush(false);
+    blockPush(true);
+    blockPush(false);
+    lineMove();
+    pieceMove();
+
+    /*
+    xx
+    xx
+    */
+    multipleBlockPush(2, true);
+    linePush();
+    lineMove();
+    pieceMove();
+
+    /*
+    xx
+     xx
+    */
+    multipleBlockPush(2, true);
+    blockPush(false);
+    lineMove();
+    blockPush(false);
+    multipleBlockPush(2, true);
+    lineMove();
+    pieceMove();
+
+    /*
+     xx
+    xx
+    */
+
+    blockPush(false);
+    multipleBlockPush(2, true);
+    lineMove();
+    multipleBlockPush(2, true);
+    blockPush(false);
     lineMove();
     pieceMove();
 }

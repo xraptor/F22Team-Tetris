@@ -8,10 +8,12 @@ class Piece;
 class Grille{
 
     enum RegEvent {
-        LEFT,
-        RIGHT,
-        UP,
-        DOWN,
+        KEY_LEFT,
+        KEY_RIGHT,
+        KEY_UP,
+        KEY_DOWN,
+        MOUSE_LEFT,
+        MOUSE_RIGHT,
         NONE
     };
 
@@ -19,7 +21,7 @@ class Grille{
         MotifPiece _mp;
         vector<sf::Color> _couleurs;
 
-        unsigned int _type[Config::NB_ROW_GAME][Config::NB_COL_GAME];
+        //unsigned int _type[Config::NB_ROW_GAME][Config::NB_COL_GAME];
         sf::RectangleShape _tBlock[Config::NB_ROW_GAME][Config::NB_COL_GAME];
         RegEvent _event;
         Piece *_pieceCourante;
@@ -36,6 +38,9 @@ class Grille{
         void moveRight();
         void moveUp();
         void moveDown();
+        void rotationAntiHoraire();
+        void rotationHoraire();
+        void isStuck();
 
         void draw(sf::RenderWindow& window);
         void handleEvent(const Event& evt);

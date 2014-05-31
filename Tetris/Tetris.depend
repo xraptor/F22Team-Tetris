@@ -71,7 +71,7 @@
 1401367623 source:c:\users\max\documents\github\f22team-tetris\tetris\block.cpp
 	"essential.hpp"
 
-1401553118 source:c:\users\max\documents\github\f22team-tetris\tetris\piece.cpp
+1401553911 source:c:\users\max\documents\github\f22team-tetris\tetris\piece.cpp
 	"essential.hpp"
 
 1401551661 source:c:\users\max\documents\github\f22team-tetris\tetris\scene.cpp
@@ -80,15 +80,16 @@
 1401368619 source:c:\users\max\documents\github\f22team-tetris\tetris\tetris.cpp
 	"essential.hpp"
 
-1401408252 c:\users\max\documents\github\f22team-tetris\tetris\config.hpp
+1401562086 c:\users\max\documents\github\f22team-tetris\tetris\config.hpp
 
-1400622580 source:c:\users\max\documents\github\f22team-tetris\tetris\config.cpp
+1401562176 source:c:\users\max\documents\github\f22team-tetris\tetris\config.cpp
+	"essential.hpp"
 
 1401474019 c:\users\max\documents\github\f22team-tetris\tetris\motifpiece.hpp
 
 1400865177 c:\users\max\documents\github\f22team-tetris\tetris\utils.hpp
 
-1400865870 source:c:\users\max\documents\github\f22team-tetris\tetris\motifpiece.cpp
+1401571557 source:c:\users\max\documents\github\f22team-tetris\tetris\motifpiece.cpp
 	"essential.hpp"
 
 1400865877 source:c:\users\max\documents\github\f22team-tetris\tetris\utils.cpp
@@ -96,9 +97,9 @@
 	<cstdlib>
 	<ctime>
 
-1401553684 c:\users\max\documents\github\f22team-tetris\tetris\grille.hpp
+1401571210 c:\users\max\documents\github\f22team-tetris\tetris\grille.hpp
 	"essential.hpp"
 
-1401553841 source:c:\users\max\documents\github\f22team-tetris\tetris\grille.cpp
+1401573130 source:c:\users\max\documents\github\f22team-tetris\tetris\grille.cpp
 	"essential.hpp"
 

@@ -15,7 +15,7 @@ public:
     static constexpr int NB_COL_GAME = 10;
     static constexpr int NB_ROW_GAME = 20;
 
-    static constexpr int DEGRE = 90;
+    static const sf::Color DEFAULT_BLOCK_COLOR;
 };
 
 #endif // _CONFIG_HPP_
