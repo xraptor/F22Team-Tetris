@@ -18,3 +18,4 @@ using namespace sf;
 #include "Config.hpp"
 #include "MotifPiece.hpp"
 #include "Utils.hpp"
+#include "Grille.hpp"

@@ -14,7 +14,10 @@ private:
 	vector<Piece>           _tPiece;
 	vector<sf::Color>       _couleurs;
 	unsigned int            _current;
-	sf::Vector2f            _taille_block;
+	Grille                  _grille;
+	//sf::Vector2f            _taille_block;
+    //bool _etat;
+
 	//Block                   *_bb;
 
 	//sf::Vector2f            _size;
@@ -36,14 +39,17 @@ public:
 	void update(sf::Time& tau);
 
 	// Rendu
-	void draw();
+    void draw();
 
+    Grille& getGrille();
     sf::Color& rndColor();
 	void genColors();
 	unsigned int getCurrent() const;
 	vector<Piece>& getTPiece();
-	void defBlockSize();
-	float getMiddleHPiece();
+	//void defBlockSize();
+	//float getMiddleHPiece();
+	MotifPiece& getMP();
+	//void setEtat(bool b);
 };
 
 #endif

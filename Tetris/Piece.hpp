@@ -17,21 +17,24 @@ class Piece {
         };
 
         Scene& _scene;
-        Vector2f& _taille_block;
-        vector<Block> _tBlock;
+        //Vector2f& _taille_block;
+        //vector<Block> _tBlock;
         sf::Color _color;
         RegEvent _event;
 
-        sf::Vector2f _minp;
-        sf::Vector2f _maxp;
+        //sf::Vector2f _minp;
+        //sf::Vector2f _maxp;
+
+        vector<vector<bool> > _currentPattern;
+        //bool _etat;
         //Block &_bb;
 
     public:
         //Constructeur & destructeur
-        Piece(float x, float y, vector<vector<bool> > tBool, sf::Color &c, sf::Vector2f &taille_block, Scene &scene);
+        Piece(unsigned int col, unsigned int row, vector<vector<bool> > tBool, sf::Color &color, Scene &scene);
         ~Piece(){};
 
-        bool estBloque();
+        /*bool estBloque();
         void hcenter();
         void vcenter();
         float wSize();
@@ -39,23 +42,27 @@ class Piece {
         void moveX(int x);
         void moveY(int y);
         void genBounds();
-        void rotation();
+        Piece rotationAntiHoraire();
+        Piece rotationHoraire();
+        Vector2f& getMinP();
+        Vector2f& getMaxP();
+        void setEtat(bool b);
 		//Etat initial
-		void init();
+		void init();*/
 
 		//Gestiondesevenements
-		void handleEvent(const sf::Event &evt);
+		//void handleEvent(const sf::Event &evt);
 
 		//Miseajour
-		void update(sf::Time& tau);
+		//void update(sf::Time& tau);
 
 		//Rendu
-		void draw(sf::RenderWindow& renderer);
+		//void draw(sf::RenderWindow& renderer);
 
 		//Piece& operator=(const Piece &p);
 
-		vector<Block> getTBlock() const;
-		sf::Color getColor() const;
+		//vector<Block> getTBlock() const;
+		//sf::Color getColor() const;
 };
 
 #endif

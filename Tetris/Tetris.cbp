@@ -42,6 +42,8 @@
 		<Unit filename="Block.cpp" />
 		<Unit filename="Block.hpp" />
 		<Unit filename="Config.hpp" />
+		<Unit filename="Grille.cpp" />
+		<Unit filename="Grille.hpp" />
 		<Unit filename="MotifPiece.cpp" />
 		<Unit filename="MotifPiece.hpp" />
 		<Unit filename="Piece.cpp" />

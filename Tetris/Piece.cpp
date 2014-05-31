@@ -1,39 +1,85 @@
 #include "essential.hpp"
 
-Piece::Piece(float x, float y, vector<vector<bool> > tBool, sf::Color &c, sf::Vector2f &taille_block, Scene &scene) :
-_color(c), _minp(Vector2f(0,0)), _maxp(Vector2f(0,0)), _taille_block(taille_block), _scene(scene), _event(NONE)
+Piece::Piece(unsigned int col, unsigned int row, vector<vector<bool> > tBool, sf::Color &color, Scene &scene) :
+_color(color), _scene(scene), _event(NONE), _currentPattern(tBool)
 {
-    for(int i = 0; i < tBool.size(); ++i) {
-        for(int j = 0; j < tBool[i].size(); ++j) {
-            if(tBool[i][j]) {
-                _tBlock.push_back(Block(x + Config::TAILLE_BORDURE + (_taille_block.x + Config::TAILLE_BORDURE*2 + Config::PAS_BLOCK_X) * j,
-                                        y + Config::TAILLE_BORDURE + (_taille_block.y + Config::TAILLE_BORDURE*2 + Config::PAS_BLOCK_Y) * i,
-                                        _color,
-                                        _taille_block));
+    _scene.getGrille().ajouterPiece(col, row, tBool, color);
+}
+/*
+Vector2f& Piece::getMinP() {
+    return _minp;
+}
+
+Vector2f& Piece::getMaxP() {
+    return _maxp;
+}
+
+Piece Piece::rotationAntiHoraire() {
+    vector<vector<bool> > tBool(_currentPattern[0].size(), vector<bool>(_currentPattern.size(), false));
+
+    for(int i = 0; i < _currentPattern.size(); ++i) {
+        for(int j = 0; j < _currentPattern[i].size(); ++j) {
+            if(_currentPattern[i][j]) {
+                tBool[_currentPattern[0].size()-1-j][i] = _currentPattern[i][j];
             }
         }
     }
 
-    genBounds();
-    //_tBlock[0].afficher();
-    //_tBlock[0].getBlock().setPosition(_tBlock[0].getBlock().getPosition().x, 200);
+    for(int i = 0; i < tBool.size(); ++i) {
+        for(int j = 0; j < tBool[i].size(); ++j) {
+            if(tBool[i][j]) {
+                cout << "x";
+            } else {
+                cout << " ";
+            }
+        }
+        if(i < tBool.size()-1) {
+            cout << endl;
+        }
+    }
+    cout << endl << endl;;
+
+    _currentPattern.clear();
+    _currentPattern = tBool;
+
+    return Piece(_minp.x, _minp.y, _currentPattern, _scene.rndColor(), _taille_block, _scene);
 }
 
-void Piece::rotation() {
-    float ox = _minp.x + wSize()/2;
-    float oy = _minp.y + hSize()/2;
-    float x, y;
+Piece Piece::rotationHoraire() {
 
-    for(int i = 0; i < _tBlock.size(); ++i) {
-        x = _tBlock[i].getX() - ox;
-        y = _tBlock[i].getY() - oy;
-        _tBlock[i].getBlock().setPosition((cos(Config::DEGRE)*x - sin(Config::DEGRE)*y) + ox,
-                                          (sin(Config::DEGRE)*x + cos(Config::DEGRE)*y) + oy);
+    vector<vector<bool> > tBool(_currentPattern[0].size(), vector<bool>(_currentPattern.size(), false));
+
+    for(int i = 0; i < _currentPattern.size(); ++i) {
+        for(int j = 0; j < _currentPattern[i].size(); ++j) {
+            if(_currentPattern[i][j]) {
+                tBool[j][_currentPattern.size()-1-i] = _currentPattern[i][j];
+            }
+        }
     }
+
+    for(int i = 0; i < tBool.size(); ++i) {
+        for(int j = 0; j < tBool[i].size(); ++j) {
+            if(tBool[i][j]) {
+                cout << "x";
+            } else {
+                cout << " ";
+            }
+        }
+        if(i < tBool.size()-1) {
+            cout << endl;
+        }
+    }
+    cout << endl << endl;;
+
+    _currentPattern.clear();
+    _currentPattern = tBool;
+
+    return Piece(_minp.x, _minp.y, _currentPattern, _scene.rndColor(), _taille_block, _scene);
+
 }
 
 void Piece::hcenter() {
-    //float tmp = wSize()/2;
+
     float mxblock = _taille_block.x + Config::PAS_BLOCK_X + Config::TAILLE_BORDURE*2;
     float xdecal = (int)((wSize()/2)/mxblock) * mxblock;
     cout << xdecal << endl;
@@ -91,14 +137,9 @@ void Piece::genBounds() {
         _minp.y = _tBlock[minb].getY();
         _maxp.y = _tBlock[maxb].getY();
 
-        //cout << "_minp.y : " << _minp.y << endl;
-        //cout << "_maxp.y : " << _maxp.y << endl;
-        //cout << "_minp.x : " << _minp.x << endl;
-        //cout << "_maxp.x : " << _maxp.x << endl;
 }
 
 float Piece::wSize() {
-    //cout << _maxp.x - _minp.x + _taille_block.x + Config::TAILLE_BORDURE*2 << endl;
     return _maxp.x - _minp.x + _taille_block.x + Config::TAILLE_BORDURE*2;
 }
 
@@ -153,7 +194,8 @@ bool Piece::estBloque() {
 
     return false;
 }
-
+*/
+/*
 void Piece::draw(sf::RenderWindow& renderer) {
 
     for(int i = 0; i < _tBlock.size(); ++i) {
@@ -161,7 +203,8 @@ void Piece::draw(sf::RenderWindow& renderer) {
     }
 
 }
-
+*/
+/*
 void Piece::handleEvent(const sf::Event &evt) {
     if(evt.type == sf::Event::KeyPressed) {
         switch(evt.key.code) {
@@ -176,12 +219,6 @@ void Piece::handleEvent(const sf::Event &evt) {
                 break;
             case sf::Keyboard::Down:
                 _event = DOWN;
-                break;
-        }
-    } else if(evt.type == sf::Event::MouseButtonPressed) {
-        switch(evt.mouseButton.button) {
-            case sf::Mouse::Right:
-                rotation();
                 break;
         }
     }
@@ -234,12 +271,6 @@ void Piece::update(sf::Time &tau) {
     _event = NONE;
 }
 
-/*Piece& Piece::operator=(const Piece &p) {
-    _tBlock = p.getTBlock();
-    _color = p.getColor();
-    return *this;
-}*/
-
 vector<Block> Piece::getTBlock() const {
     return _tBlock;
 }
@@ -247,3 +278,8 @@ vector<Block> Piece::getTBlock() const {
 sf::Color Piece::getColor() const {
     return _color;
 }
+
+void Piece::setEtat(bool b) {
+    _etat = b;
+}
+*/
