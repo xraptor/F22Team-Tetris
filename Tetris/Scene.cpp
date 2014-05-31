@@ -3,16 +3,15 @@
 Scene::Scene(sf::RenderWindow& window) :
 _sceneView(window.getDefaultView()),
 _window(window),
-_mp(MotifPiece()),
 _grille(20, 20, 200, 400)
 {
     //defBlockSize();
-    genColors();
+    //genColors();
 
-    _tPiece.push_back(Piece(0, 0, _mp.getPiece(), rndColor(), *this));
+    //_tPiece.push_back(Piece(0, 0, _mp.getPiece(), rndColor(), *this));
     //_tPiece.push_back(Piece(getMiddleHPiece(), 0, _mp.getPiece(), rndColor(), *this));
     //_tPiece[_tPiece.size()-1].hcenter();
-    _current = _tPiece.size()-1;
+    //_current = _tPiece.size()-1;
 }
 
 Grille& Scene::getGrille() {
@@ -37,6 +36,7 @@ void Scene::defBlockSize() {
                            - Config::PAS_BLOCK_Y / Config::NB_ROW_GAME);
 }
 */
+/*
 sf::Color& Scene::rndColor() {
     return _couleurs[Utils::rndInt(_couleurs.size())];
 }
@@ -48,7 +48,7 @@ void Scene::genColors() {
     _couleurs.push_back(sf::Color::Yellow);
     _couleurs.push_back(sf::Color(128,0,0)); //Marron
     _couleurs.push_back(sf::Color(102,0,204)); //Violet
-}
+}*/
 
 void Scene::draw()
 {
@@ -93,6 +93,7 @@ void Scene::handleEvent(const sf::Event& evt)
 
     _tPiece[_current].handleEvent(evt);
     */
+    _grille.handleEvent(evt);
 }
 
 void Scene::update(sf::Time& tau)
@@ -102,9 +103,10 @@ void Scene::update(sf::Time& tau)
         _tPiece[i].update(tau);
     }
     */
+    _grille.update();
 }
 
-unsigned int Scene::getCurrent() const
+/*unsigned int Scene::getCurrent() const
 {
     return _current;
 }
@@ -112,9 +114,9 @@ unsigned int Scene::getCurrent() const
 vector<Piece>& Scene::getTPiece()
 {
     return _tPiece;
-}
+}*/
 
-MotifPiece& Scene::getMP() {
+/*MotifPiece& Scene::getMP() {
     return _mp;
 }
-
+*/

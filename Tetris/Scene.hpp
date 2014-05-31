@@ -10,10 +10,10 @@ private:
 	sf::RenderWindow&		_window;
 
 	// Logique
-	MotifPiece              _mp;
+	/*MotifPiece              _mp;
 	vector<Piece>           _tPiece;
 	vector<sf::Color>       _couleurs;
-	unsigned int            _current;
+	unsigned int            _current;*/
 	Grille                  _grille;
 	//sf::Vector2f            _taille_block;
     //bool _etat;
@@ -42,13 +42,13 @@ public:
     void draw();
 
     Grille& getGrille();
-    sf::Color& rndColor();
+    /*sf::Color& rndColor();
 	void genColors();
-	unsigned int getCurrent() const;
+	unsigned int getCurrent() const;*/
 	vector<Piece>& getTPiece();
 	//void defBlockSize();
 	//float getMiddleHPiece();
-	MotifPiece& getMP();
+	//MotifPiece& getMP();
 	//void setEtat(bool b);
 };
 

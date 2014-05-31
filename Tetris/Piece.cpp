@@ -1,9 +1,33 @@
 #include "essential.hpp"
 
-Piece::Piece(unsigned int col, unsigned int row, vector<vector<bool> > tBool, sf::Color &color, Scene &scene) :
-_color(color), _scene(scene), _event(NONE), _currentPattern(tBool)
+Piece::Piece(unsigned int col, unsigned int row, vector<vector<bool> > &tBool, sf::Color &color) :
+_col(col), _row(row), _motif(tBool), _color(color), _event(NONE)
 {
-    _scene.getGrille().ajouterPiece(col, row, tBool, color);
+    //_scene.getGrille().ajouterPiece(col, row, tBool, color);
+}
+
+void Piece::setCol(unsigned int col) {
+    _row = col;
+}
+
+void Piece::setRow(unsigned int row) {
+    _row = row;
+}
+
+unsigned int Piece::getCol() {
+    return _col;
+}
+
+unsigned int Piece::getRow() {
+    return _row;
+}
+
+vector<vector<bool> >& Piece::getMotif() {
+    return _motif;
+}
+
+sf::Color& Piece::getColor() {
+    return _color;
 }
 /*
 Vector2f& Piece::getMinP() {
@@ -15,12 +39,12 @@ Vector2f& Piece::getMaxP() {
 }
 
 Piece Piece::rotationAntiHoraire() {
-    vector<vector<bool> > tBool(_currentPattern[0].size(), vector<bool>(_currentPattern.size(), false));
+    vector<vector<bool> > tBool(_motif[0].size(), vector<bool>(_motif.size(), false));
 
-    for(int i = 0; i < _currentPattern.size(); ++i) {
-        for(int j = 0; j < _currentPattern[i].size(); ++j) {
-            if(_currentPattern[i][j]) {
-                tBool[_currentPattern[0].size()-1-j][i] = _currentPattern[i][j];
+    for(int i = 0; i < _motif.size(); ++i) {
+        for(int j = 0; j < _motif[i].size(); ++j) {
+            if(_motif[i][j]) {
+                tBool[_motif[0].size()-1-j][i] = _motif[i][j];
             }
         }
     }
@@ -39,20 +63,20 @@ Piece Piece::rotationAntiHoraire() {
     }
     cout << endl << endl;;
 
-    _currentPattern.clear();
-    _currentPattern = tBool;
+    _motif.clear();
+    _motif = tBool;
 
-    return Piece(_minp.x, _minp.y, _currentPattern, _scene.rndColor(), _taille_block, _scene);
+    return Piece(_minp.x, _minp.y, _motif, _scene.rndColor(), _taille_block, _scene);
 }
 
 Piece Piece::rotationHoraire() {
 
-    vector<vector<bool> > tBool(_currentPattern[0].size(), vector<bool>(_currentPattern.size(), false));
+    vector<vector<bool> > tBool(_motif[0].size(), vector<bool>(_motif.size(), false));
 
-    for(int i = 0; i < _currentPattern.size(); ++i) {
-        for(int j = 0; j < _currentPattern[i].size(); ++j) {
-            if(_currentPattern[i][j]) {
-                tBool[j][_currentPattern.size()-1-i] = _currentPattern[i][j];
+    for(int i = 0; i < _motif.size(); ++i) {
+        for(int j = 0; j < _motif[i].size(); ++j) {
+            if(_motif[i][j]) {
+                tBool[j][_motif.size()-1-i] = _motif[i][j];
             }
         }
     }
@@ -71,10 +95,10 @@ Piece Piece::rotationHoraire() {
     }
     cout << endl << endl;;
 
-    _currentPattern.clear();
-    _currentPattern = tBool;
+    _motif.clear();
+    _motif = tBool;
 
-    return Piece(_minp.x, _minp.y, _currentPattern, _scene.rndColor(), _taille_block, _scene);
+    return Piece(_minp.x, _minp.y, _motif, _scene.rndColor(), _taille_block, _scene);
 
 }
 
