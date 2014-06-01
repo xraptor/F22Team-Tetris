@@ -12,6 +12,8 @@ _mp(), _event(NONE)
         for(int j = 0; j < Config::NB_COL_GAME; ++j) {
             _tBlock[i][j].setPosition(x + bw*j, y + bh*i);
             _tBlock[i][j].setSize(Vector2f(bw, bh));
+            _tBlock[i][j].setOutlineThickness(Config::TAILLE_BLOCK_BORDURE);
+            _tBlock[i][j].setOutlineColor(Config::BLOCK_BORDURE_COLOR);
         }
     }
 
@@ -155,7 +157,7 @@ void Grille::moveDown() {
 
 void Grille::isStuck() {
 
-    for(int i = 0; i < _pieceCourante->getMotif()[0].size()-1; ++i) {
+    for(int i = 0; i < _pieceCourante->getMotif()[0].size(); ++i) {
         for(int j = _pieceCourante->getMotif().size()-1; j >= 0; --j) {
             if(_pieceCourante->getMotif()[j][i]) {
 
@@ -170,6 +172,9 @@ void Grille::isStuck() {
 
                     vector<vector<bool> > tmpMotif = _mp.getPiece();
                     ajouterPiece(0, 0, tmpMotif, rndColor());
+
+                    i = _pieceCourante->getMotif()[0].size();
+                    j = -1;
                 } else {
                     j = -1;
                 }

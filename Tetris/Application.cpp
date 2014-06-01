@@ -2,7 +2,7 @@
 
 Application::Application() :
 _scene(_window),
-_window(sf::VideoMode(400, 800), "Tetris Raptor")
+_window(sf::VideoMode(400, 800), "Tetris xraptor")
 {
 }
 

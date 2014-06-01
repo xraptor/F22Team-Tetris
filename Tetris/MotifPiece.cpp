@@ -23,7 +23,6 @@ MotifPiece::MotifPiece() {
     blockPush(true);
     blockPush(false);
     linePush();
-    linePush();
     lineMove();
     multipleBlockPush(2, true);
     lineMove();
@@ -36,7 +35,6 @@ MotifPiece::MotifPiece() {
     */
     blockPush(false);
     blockPush(true);
-    linePush();
     linePush();
     lineMove();
     multipleBlockPush(2, true);

@@ -9,7 +9,7 @@ class MotifPiece{
 
     public:
         MotifPiece();
-        //~MotifPiece(){};
+        ~MotifPiece(){};
 
         vector<vector<bool> > getPiece();
         void multipleBlockPush(unsigned int n, bool b);

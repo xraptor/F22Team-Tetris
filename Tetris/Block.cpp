@@ -6,8 +6,8 @@ _taille_block(taille_block)
     _block.setPosition(x, y);
     _block.setSize(Vector2f(_taille_block.x, _taille_block.y));
     _block.setFillColor(c);
-    _block.setOutlineThickness(Config::TAILLE_BORDURE);
-    _block.setOutlineColor(sf::Color::White);
+    _block.setOutlineThickness(Config::TAILLE_BLOCK_BORDURE);
+    _block.setOutlineColor(Config::BLOCK_BORDURE_COLOR);
 }
 
 float Block::getX() {

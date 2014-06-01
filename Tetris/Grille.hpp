@@ -18,19 +18,21 @@ class Grille{
     };
 
     private:
+        // Logique
         MotifPiece _mp;
-        vector<sf::Color> _couleurs;
-
-        //unsigned int _type[Config::NB_ROW_GAME][Config::NB_COL_GAME];
-        sf::RectangleShape _tBlock[Config::NB_ROW_GAME][Config::NB_COL_GAME];
+        unsigned int _type[Config::NB_ROW_GAME][Config::NB_COL_GAME]; // Non utilisé pour l'instant.
         RegEvent _event;
         Piece *_pieceCourante;
 
+        // Graphique
+        vector<sf::Color> _couleurs;
+        sf::RectangleShape _tBlock[Config::NB_ROW_GAME][Config::NB_COL_GAME];
+
     public:
         Grille(float x, float y, float w, float h);
-        //~Grille(){};
+        ~Grille(){};
 
-        sf::Color& rndColor();
+        // Méthodes
         void genColors();
         void ajouterPiece(unsigned int col, unsigned int row, vector<vector<bool> > &tBool, sf::Color &color);
         void erasePiece();
@@ -42,8 +44,14 @@ class Grille{
         void rotationHoraire();
         void isStuck();
 
+        // Getter
+        sf::Color& rndColor();
+
+        // Affichage
         void draw(sf::RenderWindow& window);
+        // Gestion des événements
         void handleEvent(const Event& evt);
+        // Mise à jour suite aux événements
         void update();
 };
 

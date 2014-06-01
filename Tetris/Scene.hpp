@@ -6,28 +6,20 @@
 class Scene{
 private:
 	// Graphique
-	sf::View				_sceneView;
+	sf::View                _sceneView;
 	sf::RenderWindow&		_window;
 
-	// Logique
-	/*MotifPiece              _mp;
-	vector<Piece>           _tPiece;
-	vector<sf::Color>       _couleurs;
-	unsigned int            _current;*/
 	Grille                  _grille;
-	//sf::Vector2f            _taille_block;
-    //bool _etat;
 
-	//Block                   *_bb;
-
-	//sf::Vector2f            _size;
-	//Color                   _c;
-	//Observer				_observer;
+	// Logique
 
 public:
 	// Constructeur & destructeur
 	Scene(sf::RenderWindow& window);
 	~Scene(){};
+
+    // Retourne la grille du tetris.
+    Grille& getGrille();
 
 	// Requêtes graphiques
 	sf::Vector2f getCenter();
@@ -40,16 +32,6 @@ public:
 
 	// Rendu
     void draw();
-
-    Grille& getGrille();
-    /*sf::Color& rndColor();
-	void genColors();
-	unsigned int getCurrent() const;*/
-	vector<Piece>& getTPiece();
-	//void defBlockSize();
-	//float getMiddleHPiece();
-	//MotifPiece& getMP();
-	//void setEtat(bool b);
 };
 
 #endif

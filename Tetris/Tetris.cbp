@@ -41,6 +41,7 @@
 		<Unit filename="Application.hpp" />
 		<Unit filename="Block.cpp" />
 		<Unit filename="Block.hpp" />
+		<Unit filename="Config.cpp" />
 		<Unit filename="Config.hpp" />
 		<Unit filename="Grille.cpp" />
 		<Unit filename="Grille.hpp" />

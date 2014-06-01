@@ -10,7 +10,7 @@ class Block {
 
     public:
         Block(float x, float y, sf::Color &c, Vector2f &taille_block);
-        //~Block(){};
+        ~Block(){};
 
         float getX();
 

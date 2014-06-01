@@ -16,62 +16,29 @@ class Piece {
             NONE
         };
 
-        //Scene& _scene;
-        //Vector2f& _taille_block;
-        //vector<Block> _tBlock;
-        unsigned int _col;
-        unsigned int _row;
-        vector<vector<bool> > _motif;
-        sf::Color _color;
-        RegEvent _event;
+        // Logique
+        unsigned int                _col;
+        unsigned int                _row;
+        vector<vector<bool> >       _motif;
+        RegEvent                    _event;
 
-        //sf::Vector2f _minp;
-        //sf::Vector2f _maxp;
-
-        //bool _etat;
-        //Block &_bb;
+        // Graphique
+        sf::Color                   _color;
 
     public:
         //Constructeur & destructeur
         Piece(unsigned int col, unsigned int row, vector<vector<bool> > &tBool, sf::Color &color);
         ~Piece(){};
 
+        // Getter
         unsigned int getRow();
         unsigned int getCol();
         vector<vector<bool> >& getMotif();
         sf::Color& getColor();
 
+        // Setter
         void setCol(unsigned int col);
         void setRow(unsigned int row);
-        /*bool estBloque();
-        void hcenter();
-        void vcenter();
-        float wSize();
-        float hSize();
-        void moveX(int x);
-        void moveY(int y);
-        void genBounds();
-        Piece rotationAntiHoraire();
-        Piece rotationHoraire();
-        Vector2f& getMinP();
-        Vector2f& getMaxP();
-        void setEtat(bool b);
-		//Etat initial
-		void init();*/
-
-		//Gestiondesevenements
-		//void handleEvent(const sf::Event &evt);
-
-		//Miseajour
-		//void update(sf::Time& tau);
-
-		//Rendu
-		//void draw(sf::RenderWindow& renderer);
-
-		//Piece& operator=(const Piece &p);
-
-		//vector<Block> getTBlock() const;
-		//sf::Color getColor() const;
 };
 
 #endif
